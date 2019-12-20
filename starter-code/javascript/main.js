@@ -12,15 +12,6 @@ let milUni = document.getElementById('milUni');
 
 let number = document.getElementsByClassName('number');
 
-// for (let i = 0; i < number.length; i++) {
-//   console.log('Output for: number', number[i]);
-//   if (number[i].id === 'minDec') {
-//     number[i].innerHTML = chronometer.getMinutes();
-//   } else if (number[i].id === 'secDec') {
-//     number[i].innerHTML = chronometer.getSeconds();
-//   }
-// }
-
 function printTime() {}
 
 function printMinutes() {}
@@ -67,13 +58,10 @@ btnRight.addEventListener('click', function() {
   if (btnRight.innerHTML === 'SPLIT') {
     splits.innerHTML += `<li>${chronometer.splitClick()}</li>`;
   }
-  // if (btnLeft.innerHTML === 'RESET') {
-  //     btnLeft.innerHTML = 'STOP';
-  //     btnLeft.classList.remove('start');
-  //     btnLeft.classList.add('stop');
-  //   } else if (btnLeft.innerHTML === 'STOP') {
-  //     btnLeft.innerHTML = 'START';
-  //     btnLeft.classList.remove('stop');
-  //     btnLeft.classList.add('start');
-  //   }
+  if (btnRight.innerHTML === 'RESET') {
+    splits.innerHTML = '';
+    for (let i = 0; i < timer.length; i++) {
+      if (timer[i].innerHTML !== ':') timer[i].innerHTML = 0;
+    }
+  }
 });
