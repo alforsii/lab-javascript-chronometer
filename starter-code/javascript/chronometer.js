@@ -1,6 +1,7 @@
 class Chronometer {
   constructor() {
     this.currentTime = 0;
+    this.minutes = 0;
     this.sec = 0;
     this.intervalId;
   }
@@ -23,22 +24,11 @@ class Chronometer {
           number[i].innerHTML = seconds[1];
         }
       }
-      // this.getMinutes();
-      // this.getSeconds();
-      // console.log(this.currentTime); //test-it's counting.
     }, 1000);
   }
   getMinutes() {
-    // if (!this.currentTime) return 0;
-    // let minutes = 0;
-    // if (this.currentTime === 60) {
-    //   minutes++;
-    //   this.currentTime = 0;
-    // }
-    // return Number(minutes);
-    let minutes = Math.floor(this.currentTime / 60);
-    // console.log(minutes);
-    return minutes;
+    this.minutes = Math.floor(this.currentTime / 60);
+    return this.minutes;
   }
   getSeconds() {
     if (!this.currentTime) return 0;
@@ -59,5 +49,13 @@ class Chronometer {
   resetClick() {
     this.currentTime = 0;
   }
-  splitClick() {}
+  splitClick() {
+    let num = 0;
+    for (let i = 0; i < timer.length; i++) {
+      if (i > 0 && i < 5) {
+        num += timer[i].innerHTML;
+      }
+    }
+    return num;
+  }
 }

@@ -1,12 +1,14 @@
-var chronometer = new Chronometer();
-var btnLeft = document.getElementById('btnLeft');
-var btnRight = document.getElementById('btnRight');
-var minDec = document.getElementById('minDec');
-var minUni = document.getElementById('minUni');
-var secDec = document.getElementById('secDec');
-var secUni = document.getElementById('secUni');
-var milDec = document.getElementById('milDec');
-var milUni = document.getElementById('milUni');
+let chronometer = new Chronometer();
+let btnLeft = document.getElementById('btnLeft');
+let btnRight = document.getElementById('btnRight');
+let splits = document.getElementById('splits');
+let timer = document.querySelectorAll('#sphere span');
+let minDec = document.getElementById('minDec');
+let minUni = document.getElementById('minUni');
+let secDec = document.getElementById('secDec');
+let secUni = document.getElementById('secUni');
+let milDec = document.getElementById('milDec');
+let milUni = document.getElementById('milUni');
 
 let number = document.getElementsByClassName('number');
 
@@ -58,11 +60,13 @@ btnLeft.addEventListener('click', function() {
     btnRight.classList.remove('split');
     btnRight.classList.add('reset');
   }
-  console.log('Output for: btnLeft.classList', btnLeft.classList);
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', function() {
+  if (btnRight.innerHTML === 'SPLIT') {
+    splits.innerHTML += `<li>${chronometer.splitClick()}</li>`;
+  }
   // if (btnLeft.innerHTML === 'RESET') {
   //     btnLeft.innerHTML = 'STOP';
   //     btnLeft.classList.remove('start');
