@@ -3,34 +3,6 @@ let btnLeft = document.getElementById('btnLeft');
 let btnRight = document.getElementById('btnRight');
 let splits = document.getElementById('splits');
 let timer = document.querySelectorAll('#sphere span');
-let minDec = document.getElementById('minDec');
-let minUni = document.getElementById('minUni');
-let secDec = document.getElementById('secDec');
-let secUni = document.getElementById('secUni');
-let milDec = document.getElementById('milDec');
-let milUni = document.getElementById('milUni');
-
-let number = document.getElementsByClassName('number');
-
-function printTime() {}
-
-function printMinutes() {}
-
-function printSeconds() {}
-
-function printMilliseconds() {}
-
-function printSplit() {}
-
-function clearSplits() {}
-
-function setStopBtn() {}
-
-function setSplitBtn() {}
-
-function setStartBtn() {}
-
-function setResetBtn() {}
 
 // Start/Stop Button
 btnLeft.addEventListener('click', function() {
@@ -59,6 +31,7 @@ btnRight.addEventListener('click', function() {
     splits.innerHTML += `<li>${chronometer.splitClick()}</li>`;
   }
   if (btnRight.innerHTML === 'RESET') {
+    chronometer.resetClick();
     splits.innerHTML = '';
     for (let i = 0; i < timer.length; i++) {
       if (timer[i].innerHTML !== ':') timer[i].innerHTML = 0;
